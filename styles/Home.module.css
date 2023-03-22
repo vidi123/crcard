@@ -84,6 +84,14 @@ button.champion:focus{
   gap: 19px;
 }
 
+.card{
+  border-radius: 15px;
+}
+.card img{
+  width: 142px;
+  height: 180px;
+}
+
 /* 
 .grid {
   display: flex;
