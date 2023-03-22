@@ -1,44 +1,90 @@
+@font-face {
+  font-family: supercell-magic;
+  src: url(fontcr/supercell-magic-webfont.ttf);
+  font-weight: normal;
+  font-style: normal;
+}
 .container {
-  min-height: 100vh;
-  padding: 0 0.5rem;
+  width: 100%;
+}
+
+.header{
+  width: 100%;
+  background: linear-gradient(#222, #333);
+  box-shadow: 1px 1px 3px #222;
+  color: white;
+}
+
+.judul{
+  width: 100%;
+  height: 70px;
+  text-align: center;
+  line-height: 70px;
+  letter-spacing: 3px;
+  font-size: 17px;
+  text-shadow: 1.5px 4px 1px #000;
+}
+
+.rarity{
+  width: 100%;
   display: flex;
-  flex-direction: column;
   justify-content: center;
-  align-items: center;
 }
 
-.title a {
-  color: #0070f3;
-  text-decoration: none;
+.rarity button{
+  width: 200px;
+  height: 50px;
+  background-color: transparent;
+  color: white;
+  border: none;
+  text-shadow: 1px 3px 1px #000;
+  cursor: pointer;
 }
 
-.title a:hover,
-.title a:focus,
-.title a:active {
-  text-decoration: underline;
+.rarity button:hover{
+  background-color: #22222285;
 }
 
-.title {
-  margin: 0 0 1rem;
-  line-height: 1.15;
-  font-size: 3.6rem;
+button.common:focus{
+  box-shadow: 0 -3px 0 #ddd inset;
+  color: #ddd;
 }
 
-.title {
-  text-align: center;
+button.rare:focus{
+  box-shadow: 0 -3px 0 rgb(252, 106, 38) inset;
+  color: rgb(252, 106, 38);
 }
 
-.title,
-.description {
-  text-align: center;
+button.epic:focus{
+  box-shadow: 0 -3px 0 purple inset;
+  color: purple;
 }
 
-
-.description {
-  line-height: 1.5;
-  font-size: 1.5rem;
+button.legendary:focus{
+  box-shadow: 0 -3px 0 rgb(111, 253, 123) inset;
+  color: rgb(111, 253, 123);
 }
 
+button.champion:focus{
+  box-shadow: 0 -3px  0 gold inset;
+  color: gold;
+}
+
+.cards{
+  width: 90%;
+  padding: 20px;
+  box-sizing: border-box;
+  margin: 50px auto 0px auto;
+  min-height: 400px;
+  background-color: white;
+  border-radius: 15px;
+  box-shadow: 1px 5px 15px #222;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 19px;
+}
+
+/* 
 .grid {
   display: flex;
   align-items: center;
@@ -81,11 +127,11 @@
 
 .logo {
   height: 1em;
-}
-
+} */
+/* 
 @media (max-width: 600px) {
   .grid {
     width: 100%;
     flex-direction: column;
   }
-}
+} */
