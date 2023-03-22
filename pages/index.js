@@ -5,38 +5,40 @@ import { useEffect, useState } from "react";
 export default function Home() {
   const [data, setData] = useState([]);
   const [filterData, setFilterData] = useState([]);
-  const [rare, setRare] = useState("Common");
-
-  async function filteredData() {
+  const [rare, setRare] = useState("Champion");
+  
+  async function filteredData(newRare) {
     const res = await fetch(
       "https://royaleapi.github.io/cr-api-data/json/cards.json"
-    );
+      );
     const data = await res.json();
     let filtered = [];
     let allFilter = [];
     if (data.length) {
-      filtered = data.filter((item) => item.rarity == rare);
+      // console.log(rare);
+      filtered = data.filter((item) => item.rarity == newRare);
       for (const item of filtered) {
         const resImage = await fetch(
           "https://vidi123.github.io/api-gambar/gambar2.json"
         );
         const images = await resImage.json();
-        let image = images.find((img) => img.id == item.id);
+        let image = images.find((img) => img.name == item.name);
         let url = "";
         if (image) url = image.iconUrls.medium;
         allFilter.push({ ...item, image: url });
       }
+      setRare(newRare);
       setFilterData(allFilter);
     }
   }
 
-  function changeRare(rare) {
-    setRare(rare);
-    filteredData();
+  function changeRare(key) {
+    // console.log(rare)
+    filteredData(key);
   }
 
   useEffect(() => {
-    // filteredData();
+    filteredData();
   }, []);
 
   return (
@@ -89,7 +91,7 @@ export default function Home() {
       </main>
 
       <footer>
-        <p>Create by Vidi</p>
+        <p>Designed by Vidi</p>
       </footer>
 
       <style jsx>{`
@@ -105,8 +107,9 @@ export default function Home() {
           height: 50px;
           background: linear-gradient(#222, #333);
           color: white;
-          position: fixed;
-          bottom: 0;
+          margin-top: 100px;
+          // position: absolute;
+          // bottom: 0;
           display: flex;
           justify-content: center;
           align-items: center;
